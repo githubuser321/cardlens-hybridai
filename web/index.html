@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CardLens</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0D9488" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <nav class="app-nav-landmark" aria-label="Sections">
+    <div id="app-nav" class="app-nav" role="tablist">
+      <a id="nav-home" href="#home" role="tab" aria-selected="true" aria-controls="view-home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>
+        <span>Home</span>
+      </a>
+      <a id="nav-results" href="#results" role="tab" aria-selected="false" aria-controls="view-results" tabindex="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 19h3V10H4zm6.5 0h3V5h-3zm6.5 0h3v-7h-3z"/></svg>
+        <span>Results</span>
+      </a>
+      <a id="nav-settings" href="#settings" role="tab" aria-selected="false" aria-controls="view-settings" tabindex="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5zm8.2 2.6-1.7-.3a6.7 6.7 0 0 0-.8-1.8l1-1.4-1.6-1.6-1.4 1a6.7 6.7 0 0 0-1.8-.8l-.3-1.7h-2.2l-.3 1.7a6.7 6.7 0 0 0-1.8.8l-1.4-1-1.6 1.6 1 1.4a6.7 6.7 0 0 0-.8 1.8l-1.7.3v2.2l1.7.3a6.7 6.7 0 0 0 .8 1.8l-1 1.4 1.6 1.6 1.4-1a6.7 6.7 0 0 0 1.8.8l.3 1.7h2.2l.3-1.7a6.7 6.7 0 0 0 1.8-.8l1.4 1 1.6-1.6-1-1.4a6.7 6.7 0 0 0 .8-1.8l1.7-.3z"/></svg>
+        <span>Settings</span>
+      </a>
+    </div>
+    </nav>
+    <main id="main">
+      <p id="config-status" class="banner" role="status" aria-live="polite" aria-atomic="true"></p>
+      <p id="offline-status" class="banner is-offline" role="status" hidden></p>
+      <div id="legal-root" hidden></div>
+      <div id="app-screens">
+      <div id="view-home" data-view="home">
+      <header class="top hero">
+        <p class="eyebrow" hidden>Firebase AI Logic · hybrid</p>
+        <div class="hero-card">
+          <div class="hero-copy">
+            <p class="hero-brand">CardLens</p>
+            <h1 id="app-lede">See where your money goes</h1>
+            <p class="lede-sub">Drop a card statement. Get totals, subscriptions and surprises in seconds. Private by default.</p>
+            <div class="hero-actions">
+              <button type="button" id="load-demo" class="hero-primary">Try demo statement</button>
+              <button type="button" id="hero-upload" class="hero-ghost">Upload my statement</button>
+            </div>
+            <p class="hero-trust">
+              <svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l8 3v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V5z"/></svg>
+              <span id="hero-support" class="hero-support">Runs on your device. Cloud only if you agree.</span>
+              <button type="button" id="privacy-info" class="info-dot" aria-label="Privacy details" aria-expanded="false">i</button>
+            </p>
+            <p id="privacy-details-body" hidden>
+              On the free tier, Google may use that text to improve its products. Cloud analysis is off when this browser looks like the EEA, the UK, or Switzerland.
+            </p>
+          </div>
+          <div class="hero-preview" aria-hidden="true">
+            <p class="hero-preview-total">$550.93 · October</p>
+            <div class="summary-stack">
+              <span class="stack-part" data-category="utilities" style="flex-grow: 16"></span>
+              <span class="stack-part" data-category="groceries" style="flex-grow: 14"></span>
+              <span class="stack-part" data-category="dining" style="flex-grow: 4"></span>
+              <span class="stack-part" data-category="transport" style="flex-grow: 7"></span>
+              <span class="stack-part" data-category="subscriptions" style="flex-grow: 5"></span>
+              <span class="stack-part" data-category="shopping" style="flex-grow: 8"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How it works</h2>
+        <ol class="steps">
+          <li>
+            <img src="/icon-upload.svg" alt="" width="48" height="48" />
+            <h3>Upload</h3>
+            <p>Drop a statement PDF or photo.</p>
+          </li>
+          <li>
+            <img src="/icon-device.svg" alt="" width="48" height="48" />
+            <h3>Analyze on device</h3>
+            <p>Categories run locally. Nothing leaves until you agree.</p>
+          </li>
+          <li>
+            <img src="/icon-insights.svg" alt="" width="48" height="48" />
+            <h3>See insights</h3>
+            <p>Totals, subscriptions, and month-over-month in plain English.</p>
+          </li>
+        </ol>
+      </section>
+
+      <details class="explainer-fold" id="explainer-fold">
+        <summary>See how it works (25s)</summary>
+      <section id="explainer" aria-labelledby="explainer-heading">
+        <h2 id="explainer-heading">Watch it sort</h2>
+        <div class="explainer" role="group" aria-label="CardLens. Understand your card spend in one tap. A statement drops onto a phone, charges sort on this device into teal, coral, and violet groups, then subscriptions and a total appear. Try demo statement. Cloud only if you agree.">
+          <div class="scene scene-title">
+            <p class="explainer-kicker">CardLens</p>
+            <p>Understand your card spend in one tap.</p>
+          </div>
+          <div class="scene scene-upload">
+            <svg class="explainer-phone" viewBox="0 0 120 90" aria-hidden="true">
+              <rect x="28" y="8" width="64" height="74" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+              <rect class="sheet" x="46" y="2" width="28" height="34" rx="3" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+            </svg>
+            <p>Drop your statement</p>
+          </div>
+          <div class="scene scene-device">
+            <svg class="explainer-lock" viewBox="0 0 120 90" aria-hidden="true">
+              <path d="M60 16l22 8v16c0 14-10 24-22 28-12-4-22-14-22-28V24z" fill="#ecfdf5" stroke="#0d9488" stroke-width="3"/>
+              <rect class="bar bar-a" x="18" y="62" width="22" height="10" rx="2" fill="#0d9488"/>
+              <rect class="bar bar-b" x="48" y="54" width="22" height="18" rx="2" fill="#f97316"/>
+              <rect class="bar bar-c" x="78" y="48" width="22" height="24" rx="2" fill="#7c3aed"/>
+            </svg>
+            <p>Sorted on this device</p>
+          </div>
+          <div class="scene scene-insights">
+            <p class="explainer-total">$550.93</p>
+            <p>Spotify · Netflix</p>
+            <p>See where the money goes</p>
+          </div>
+          <div class="scene scene-cta" hidden></div>
+        </div>
+      </section>
+      </details>
+
+      <section id="first-run" aria-labelledby="first-run-heading">
+        <h2 id="first-run-heading">Before you start</h2>
+        <div id="first-run-form">
+          <p id="first-run-text">
+            CardLens analyzes statements on your device. For informational use only – not financial advice. 18+. By continuing you agree to the <a href="/terms">Terms</a> and acknowledge the <a href="/privacy">Privacy Policy</a>.
+          </p>
+          <label class="check" for="first-run-agree">
+            <input id="first-run-agree" type="checkbox" />
+            <span id="first-run-agree-text">I agree to the <a href="/terms">Terms</a> and acknowledge the <a href="/privacy">Privacy Policy</a>.</span>
+          </label>
+          <div class="actions">
+            <button type="button" id="first-run-continue" disabled>Continue</button>
+          </div>
+        </div>
+        <p id="first-run-agreed" class="agreed" hidden>Agreed.</p>
+      </section>
+
+      <section id="statement" class="upload-anchor" aria-labelledby="pdf-heading">
+        <h2 id="pdf-heading">Add your statement</h2>
+        <p class="note">
+          Charges are positive. Credits and refunds are negative. Sorting stays on this device.
+        </p>
+        <label class="drop" id="drop-zone" tabindex="-1">
+          <input id="pdf-file" type="file" accept="application/pdf,.pdf,image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" />
+          <span>Drop a text PDF, or a scanned image, here</span>
+        </label>
+        <details class="more-samples">
+          <summary>More ways to try</summary>
+          <div class="actions">
+            <button type="button" id="load-demo-scan" class="button-quiet">Try scanned image</button>
+            <button type="button" id="load-sample" class="button-quiet">Load sample statement</button>
+          </div>
+          <p class="note" id="scan-note">
+            A scanned image cannot be redacted. It stays on this device unless on-device reading fails and you agree to send that image. The checkbox starts unchecked.
+          </p>
+          <p class="note">
+            Try demo statement loads a fictional English PDF through the same parse, redact, and categorize path as an upload.
+            Try scanned image loads a rotated photo of that page.
+          </p>
+        </details>
+        <p id="pdf-status" role="status" aria-live="polite" tabindex="-1"></p>
+        <p id="demo-statement-view" class="note" hidden>
+          <a id="view-demo-statement" href="/demo/demo-statement.pdf" target="_blank" rel="noopener noreferrer">View demo statement<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <details>
+          <summary>Show raw text</summary>
+          <div id="pdf-lines"></div>
+        </details>
+      </section>
+      <div class="home-foot">
+        <p id="home-legal" class="home-legal">
+          <a href="/privacy">Privacy</a>
+          <span aria-hidden="true"> · </span>
+          <a href="/terms">Terms</a>
+          <span aria-hidden="true"> · </span>
+          <a href="/accessibility">Accessibility</a>
+        </p>
+        <p class="recaptcha-note home-recaptcha">
+          <span id="recaptcha-home-line">This site is protected by reCAPTCHA.</span>
+          <a id="recaptcha-home-more" href="/privacy#security">Learn how we use it</a>
+        </p>
+      </div>
+      </div>
+
+      <div id="view-results" data-view="results" hidden>
+      <p id="results-ready" class="sr-only" aria-live="polite"></p>
+      <section id="empty-state" class="empty-card" aria-labelledby="empty-heading">
+        <div class="empty-art">
+          <img src="/empty-dashboard.svg" alt="" width="160" height="107" />
+        </div>
+        <h2 id="empty-heading">No results yet</h2>
+        <p>Try a sample statement to see what CardLens finds. It takes 5 seconds.</p>
+        <button type="button" id="empty-demo" class="hero-primary">Try demo statement</button>
+        <button type="button" id="empty-upload" class="text-button">Upload my statement</button>
+      </section>
+
+      <p id="device-choice" class="device-choice" hidden>You chose to keep analysis on this device. Change in <a href="#settings">Settings</a>.</p>
+
+      <section id="dashboard" aria-labelledby="dashboard-heading" aria-busy="false" hidden>
+        <h2 id="dashboard-heading" class="sr-only">Your spending</h2>
+        <p id="dashboard-stale" class="note" hidden>This dashboard is from the previous file.</p>
+        <div id="cloud-fallback" class="cloud-fallback" role="alert" hidden>
+          <p id="cloud-fallback-message"></p>
+          <details id="cloud-fallback-details">
+            <summary>Details</summary>
+            <p id="cloud-fallback-detail"></p>
+          </details>
+        </div>
+        <p id="analysis-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">Load a statement to see categories. Nothing is sent until you do.</p>
+        <div id="cloud-send" class="cloud-send" role="status" aria-live="polite" hidden>
+          <p id="cloud-send-title" class="cloud-send-title"></p>
+          <p id="cloud-send-detail"></p>
+          <details id="cloud-send-tech" hidden>
+            <summary>Details</summary>
+            <p id="cloud-send-tech-body"></p>
+          </details>
+          <div class="cloud-send-actions">
+            <button type="button" id="cloud-send-retry" hidden>Retry</button>
+            <button type="button" id="cloud-send-dismiss" class="button-quiet" hidden>Dismiss</button>
+          </div>
+        </div>
+        <div class="summary-card spend-card" id="metrics" hidden>
+          <p class="summary-kicker">Your spending</p>
+          <h2 id="summary-heading" class="summary-spent" tabindex="-1">You spent <span id="metric-total"></span><span id="summary-month"></span></h2>
+          <p id="summary-top"></p>
+          <p id="summary-subs"></p>
+          <p id="summary-foreign" hidden></p>
+          <div id="summary-stack" class="summary-stack"></div>
+          <p class="summary-how">How this was sorted</p>
+          <div id="result-chip-row"></div>
+          <p id="result-disclaimer" class="disclaimer" hidden></p>
+          <p class="summary-count"><span id="metric-count">0</span> transactions</p>
+          <button type="button" id="improve-cloud" aria-busy="false" aria-disabled="false">
+            <span id="improve-cloud-spinner" class="cloud-spinner" hidden></span>
+            <span id="improve-cloud-label">Improve with Cloud AI</span>
+          </button>
+          <p class="recaptcha-note recaptcha-on-card">
+            <span id="recaptcha-results-line">This site is protected by reCAPTCHA.</span>
+            <a id="recaptcha-results-more" href="/privacy#security">Learn how we use it</a>
+          </p>
+        </div>
+        <div class="tablist" role="tablist" aria-label="Results">
+          <button type="button" id="tab-overview" role="tab" aria-selected="true" aria-controls="panel-overview">Overview</button>
+          <button type="button" id="tab-subscriptions" role="tab" aria-selected="false" aria-controls="panel-subscriptions">Subscriptions</button>
+          <button type="button" id="tab-transactions" role="tab" aria-selected="false" aria-controls="panel-transactions">Transactions</button>
+        </div>
+        <div id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+          <h3>By category</h3>
+          <div id="category-chart"></div>
+          <div class="split">
+            <div>
+              <h3>By month</h3>
+              <div id="month-chart"></div>
+            </div>
+            <div>
+              <h3>Top merchants</h3>
+              <ol id="top-merchants"></ol>
+            </div>
+          </div>
+          <h3>Anomalies</h3>
+          <ul id="anomaly-list" class="stack"></ul>
+          <h3>Insights</h3>
+          <p id="insights-summary">Insights appear after a statement is parsed.</p>
+          <ul id="insights-list" class="stack"></ul>
+          <p id="insights-note" class="note"></p>
+          <h3 id="compare-heading">Month over month</h3>
+          <p id="compare-status" role="status">Load a statement that covers two months to compare them. The comparison stays on this device.</p>
+          <div id="compare-chart"></div>
+          <h3 id="compare-subs-heading">Subscription changes</h3>
+          <ul id="compare-subs" class="stack">
+            <li>Subscription changes appear when two months are available.</li>
+          </ul>
+        </div>
+        <div id="panel-subscriptions" role="tabpanel" aria-labelledby="tab-subscriptions" hidden>
+          <h3>Subscriptions</h3>
+          <p id="subscription-total" class="muted">Subscriptions appear after a statement is parsed.</p>
+          <ul id="subscription-list" class="stack"></ul>
+        </div>
+        <div id="panel-transactions" role="tabpanel" aria-labelledby="tab-transactions" hidden>
+          <div class="table-toolbar">
+            <label for="category-filter">Filter by category</label>
+            <select id="category-filter">
+              <option value="all">All categories</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Parsed transactions</caption>
+              <thead>
+                <tr>
+                  <th>Statement</th>
+                  <th>Category</th>
+                  <th class="num">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="transaction-rows"></tbody>
+            </table>
+          </div>
+          <p id="table-empty" class="muted">Nothing in this category yet.</p>
+        </div>
+      </section>
+      </div>
+
+      <div id="view-settings" data-view="settings" hidden>
+      <section id="onboarding" aria-labelledby="onboarding-heading">
+        <h2 id="onboarding-heading">AI on this device</h2>
+        <p id="onboarding-privacy" class="note">
+          Basic sorting runs on this device until an on-device model is ready. The download starts only after you click.
+        </p>
+        <p id="onboarding-line">
+          <span id="onboarding-badge" class="tag" data-state="unknown">Basic sorting</span>
+          <span id="onboarding-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">Checking whether this browser can run the on-device model.</span>
+        </p>
+        <p id="onboarding-requirements" class="note" hidden></p>
+        <div id="onboarding-progress" hidden>
+          <label for="onboarding-meter">Download progress</label>
+          <progress id="onboarding-meter" max="100" value="0">0%</progress>
+        </div>
+        <div class="actions" id="onboarding-actions">
+          <button type="button" id="download-model">Check and download</button>
+          <button type="button" id="dismiss-onboarding" class="button-quiet" hidden>Keep using basic sorting</button>
+        </div>
+      </section>
+      <section id="what-is-sent" aria-labelledby="what-is-sent-heading">
+        <h2 id="what-is-sent-heading">What is sent to the cloud</h2>
+        <p id="cloud-sent" role="status" class="note">
+          Every cloud-eligible call in this session is listed here with the exact payload.
+        </p>
+        <p id="cloud-empty" class="muted">Nothing has been sent yet.</p>
+        <div id="cloud-log"></div>
+      </section>
+
+      <details class="panel" id="hybrid-demo" hidden>
+        <summary>Sample hybrid demo</summary>
+        <section aria-labelledby="demo-heading">
+          <h2 id="demo-heading">Hybrid demo</h2>
+          <p class="note">
+            Categorizes sample merchant names. It does not send your statement.
+          </p>
+          <button type="button" id="run-demo">Run hybrid demo</button>
+          <p id="demo-status" role="status"></p>
+          <p id="inference-row" hidden>
+            <span id="inference-tag" class="tag"></span>
+            <code id="inference-raw"></code>
+          </p>
+          <pre id="demo-result"></pre>
+        </section>
+      </details>
+
+      <section id="settings" aria-labelledby="settings-heading">
+        <h2 id="settings-heading">Settings</h2>
+        <fieldset>
+          <legend id="cloud-pref-legend">Cloud analysis</legend>
+          <label class="check" for="cloud-pref-ask">
+            <input id="cloud-pref-ask" type="radio" name="cloud-pref" value="ask" checked />
+            <span id="cloud-pref-ask-label">Always ask</span>
+          </label>
+          <label class="check" for="cloud-pref-never">
+            <input id="cloud-pref-never" type="radio" name="cloud-pref" value="never" />
+            <span id="cloud-pref-never-label">Never use cloud</span>
+          </label>
+        </fieldset>
+        <p id="consent-status"></p>
+        <p id="session-cloud" aria-live="polite" hidden></p>
+        <div class="actions">
+          <button type="button" id="session-cloud-off" class="button-choice" hidden>Turn off cloud for this session</button>
+          <button type="button" id="session-cloud-on" class="button-choice" hidden>Turn cloud back on</button>
+        </div>
+        <h3>Your data on this device</h3>
+        <p class="note" id="clear-note">
+          Statements and images are not saved. Clear my data removes preferences, consent records, and cached files in this browser. It cannot delete anything already sent to Google.
+        </p>
+        <div class="actions">
+          <button type="button" id="clear-data" class="button-choice">Clear my data</button>
+        </div>
+        <p id="clear-status" role="status"></p>
+      </section>
+      <section id="about-legal" class="about-legal" aria-labelledby="about-legal-heading">
+        <h2 id="about-legal-heading">About &amp; legal</h2>
+        <footer class="foot">
+          <p id="footer-studio" class="studio">Dash Buddies Games</p>
+          <nav id="legal-nav" class="legal-nav" aria-label="Legal">
+            <a id="link-privacy" href="/privacy">Privacy Policy</a>
+            <span aria-hidden="true"> · </span>
+            <a id="link-terms" href="/terms">Terms of Use</a>
+            <span aria-hidden="true"> · </span>
+            <a id="link-accessibility" href="/accessibility">Accessibility Statement</a>
+            <span aria-hidden="true"> · </span>
+            <a id="link-contact" href="mailto:dashbuddies.games@gmail.com">Contact</a>
+          </nav>
+          <p id="footer-blurb">
+            Card numbers, IDs, phones, emails, bank details, the cardholder name, and the address are stripped on this device before text is sent. An image is not redacted. Nothing is sent without consent, and a failed call is not retried with the original text.
+          </p>
+          <p class="recaptcha-note">
+            <span id="recaptcha-footer-line">This site is protected by reCAPTCHA.</span>
+            <a id="recaptcha-footer-more" href="/privacy#security">Learn how we use it</a>
+          </p>
+        </footer>
+      </section>
+      </div>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

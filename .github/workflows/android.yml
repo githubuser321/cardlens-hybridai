@@ -1,0 +1,62 @@
+name: Android CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "android/**"
+      # The Android model contract test reads these files; schema edits should rerun this workflow.
+      - "shared/schema/**"
+      - ".github/workflows/android.yml"
+  pull_request:
+    paths:
+      - "android/**"
+      - "shared/schema/**"
+      - ".github/workflows/android.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build, lint, unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: android
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          packages: "platforms;android-37.0 build-tools;37.0.0"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      # Intentionally no google-services.json: the build must work without Firebase config.
+      - name: Assemble, lint, unit tests
+        run: ./gradlew --no-configuration-cache assembleDebug lint testDebugUnitTest compileReleaseKotlin
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: android-reports
+          path: |
+            android/app/build/reports/
+            android/app/build/test-results/
+          if-no-files-found: ignore

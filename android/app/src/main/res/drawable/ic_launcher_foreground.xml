@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Card -->
+    <path android:fillColor="#FFFFFF" android:pathData="M30,38h40a4,4 0,0 1,4 4v24a4,4 0,0 1,-4 4h-40a4,4 0,0 1,-4 -4v-24a4,4 0,0 1,4 -4z" />
+    <path android:fillColor="#1565C0" android:pathData="M26,45h48v6h-48z" />
+    <!-- Lens -->
+    <path android:fillColor="#FFC107" android:pathData="M66,60m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0" />
+    <path android:fillColor="#FFC107" android:pathData="M72,66l9,9l-3,3l-9,-9z" />
+</vector>

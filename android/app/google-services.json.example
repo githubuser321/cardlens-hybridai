@@ -1,0 +1,18 @@
+{
+  "_comment": "PLACEHOLDER ONLY - not a real config and not read by the build. Download the real google-services.json from Firebase console > Project settings > Your apps > io.cardlens.app and save it as android/app/google-services.json (git-ignored).",
+  "project_info": {
+    "project_number": "000000000000",
+    "project_id": "your-firebase-project-id",
+    "storage_bucket": "your-firebase-project-id.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+        "android_client_info": { "package_name": "io.cardlens.app" }
+      },
+      "api_key": [{ "current_key": "REPLACE_ME" }]
+    }
+  ],
+  "configuration_version": "1"
+}

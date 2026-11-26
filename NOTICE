@@ -1,0 +1,16 @@
+CardLens
+Copyright 2026 the CardLens contributors
+
+Publisher: Dash Buddies Games
+Privacy, accessibility, and general contact: dashbuddies.games@gmail.com
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+This product bundles or builds with:
+
+- Firebase JavaScript SDK (Apache-2.0) — https://github.com/firebase/firebase-js-sdk
+- pdf.js (Apache-2.0) — https://github.com/mozilla/pdf.js
+- DejaVu fonts, used only by web/scripts/make-demo-fixtures.mjs to draw the fictional demo PDF. See web/scripts/fonts/LICENSE-DEJAVU.txt
+- axe-core (MPL-2.0), a development dependency used by the accessibility tests. It is not part of the production bundle.
+
+The statement parser, redaction, dashboard, service worker, and Android skeleton were already in this repository before the November 2026 legal and compliance pass.

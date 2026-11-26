@@ -1,0 +1,22 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+
+.env
+.env.local
+.env.*.local
+
+# Secrets. Firebase web config and a reCAPTCHA site key are not secrets.
+# Service accounts, reCAPTCHA secrets, Gemini API keys, and App Check debug tokens are.
+*service-account*.json
+*serviceAccount*.json
+**/google-services.json
+!android/app/google-services.json.example
+*debug-token*
+*debug_token*
+*.pem
+*.p12
+*.jks
+*.keystore

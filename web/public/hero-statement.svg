@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="A card statement sorted into spending groups">
+  <rect width="320" height="180" rx="24" fill="#FFF7ED"/>
+  <rect x="28" y="28" width="120" height="124" rx="16" fill="#FFFFFF" stroke="#0D9488" stroke-width="3"/>
+  <rect x="42" y="46" width="72" height="8" rx="4" fill="#FDBA74"/>
+  <rect x="42" y="64" width="92" height="8" rx="4" fill="#E7E5E4"/>
+  <rect x="42" y="82" width="80" height="8" rx="4" fill="#E7E5E4"/>
+  <rect x="42" y="100" width="64" height="8" rx="4" fill="#E7E5E4"/>
+  <rect x="168" y="36" width="124" height="28" rx="10" fill="#ECFDF5"/>
+  <rect x="180" y="46" width="72" height="8" rx="4" fill="#0D9488"/>
+  <rect x="168" y="76" width="124" height="28" rx="10" fill="#FFEDD5"/>
+  <rect x="180" y="86" width="56" height="8" rx="4" fill="#F97316"/>
+  <rect x="168" y="116" width="124" height="28" rx="10" fill="#F5F3FF"/>
+  <rect x="180" y="126" width="88" height="8" rx="4" fill="#7C3AED"/>
+</svg>

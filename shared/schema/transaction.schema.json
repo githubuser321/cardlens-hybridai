@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["date", "merchant", "amount", "currency", "category", "isRecurring"],
+  "properties": {
+    "date": { "type": "string", "format": "date" },
+    "merchant": { "type": "string", "minLength": 1 },
+    "amount": {
+      "type": "number",
+      "description": "Positive number = charge. Negative number = credit or refund."
+    },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "category": {
+      "type": "string",
+      "enum": [
+        "groceries",
+        "dining",
+        "transport",
+        "fuel",
+        "utilities",
+        "subscriptions",
+        "shopping",
+        "health",
+        "entertainment",
+        "travel",
+        "education",
+        "insurance",
+        "fees",
+        "transfers",
+        "other"
+      ]
+    },
+    "isRecurring": { "type": "boolean" }
+  },
+  "examples": [
+    {
+      "date": "2026-03-01",
+      "merchant": "Greenleaf Market",
+      "amount": 86.4,
+      "currency": "ILS",
+      "category": "groceries",
+      "isRecurring": false
+    },
+    {
+      "date": "2026-03-05",
+      "merchant": "StreamBox Monthly",
+      "amount": 34.9,
+      "currency": "ILS",
+      "category": "subscriptions",
+      "isRecurring": true
+    },
+    {
+      "date": "2026-03-18",
+      "merchant": "Parcel Return Counter",
+      "amount": -42.5,
+      "currency": "ILS",
+      "category": "shopping",
+      "isRecurring": false
+    }
+  ]
+}
